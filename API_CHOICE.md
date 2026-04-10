@@ -2,12 +2,24 @@
 
 - Étudiant : Frederic VIRAVANH
 - API choisie : Frankfurter
-- URL base : https://api.frankfurter.dev/
+- URL base : https://api.frankfurter.app
 - Documentation officielle / README : https://frankfurter.dev
 - Auth : None
-- Endpoints testés : 
-  - GET https://api.frankfurter.dev/v1/latest?from=EUR
-  - GET https://api.frankfurter.dev/v1/latest?from=USD
+- Endpoints testés :
+  - GET https://api.frankfurter.app/latest?from=EUR
 - Hypothèses de contrat (champs attendus, types, codes) :
-- Limites / rate limiting connu : >= 0
+  - Réponse HTTP 200 attendue.
+  - Réponse au format JSON.
+  - Champs obligatoires : amount, base, date, rates.
+  - amount : numérique
+  - base : string
+  - date : string au format YYYY-MM-DD
+  - rates : objet JSON non vide
+  - Le taux USD doit être présent et strictement positif.
+- Limites / rate limiting connu :
+  - Pas d’authentification requise.
+  - Pas de limite stricte connue pour un usage modéré.
 - Risques (instabilité, downtime, CORS, etc.) :
+  - API publique donc potentiellement indisponible temporairement.
+  - Variabilité de latence réseau.
+  - Évolution possible des données de change dans le temps.
