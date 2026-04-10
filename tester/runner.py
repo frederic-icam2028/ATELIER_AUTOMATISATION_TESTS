@@ -43,17 +43,3 @@ def run_all_tests():
         "summary": summary,
         "tests": tests,
     }
-import traceback
-
-@app.get("/run")
-def run():
-    try:
-        result = run_all_tests()
-        save_run(result)
-        return jsonify(result)
-    except Exception as e:
-        return jsonify({
-            "status": "error",
-            "message": str(e),
-            "trace": traceback.format_exc()
-        }), 500
