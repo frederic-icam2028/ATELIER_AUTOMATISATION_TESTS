@@ -4,6 +4,8 @@ from flask import json
 from urllib.request import urlopen
 from werkzeug.utils import secure_filename
 import sqlite3
+from tester.runner import run_all_tests
+from storage import init_db, save_run, list_runs
 
 app = Flask(__name__)
 
